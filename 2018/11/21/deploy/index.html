@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="">
+  <head><meta name="generator" content="Hexo 3.8.0">
+    
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1">
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+  <meta name="description" content="deploy your app in aliyun">
+
+
+
+
+  <meta name="keywords" content="阿里云,">
+
+
+
+
+
+  <link rel="alternate" href="/default" title="诗歌创作">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=1.1">
+
+
+
+<link rel="canonical" href="ppp000.top/2018/11/21/deploy/">
+
+
+<meta name="description" content="教程简介主要记录基于 ng + nodejs + mysql 开发的系统部署阿里云服务器的过程 准备1、云服务器2、域名3、各种安装包4、自行了解部分词汇含义：ecs、备案、dns解析、安全组、公网ip，私网ip，iis 主要步骤关键词：angular + nodejs + mysql + ecs + win2012R2_64位 + iis + pm2主要步骤中最耗费时间的是备案，笔者准备备案资料">
+<meta name="keywords" content="阿里云">
+<meta property="og:type" content="article">
+<meta property="og:title" content="deploy your app in aliyun">
+<meta property="og:url" content="ppp000.top/2018/11/21/deploy/index.html">
+<meta property="og:site_name" content="诗歌创作">
+<meta property="og:description" content="教程简介主要记录基于 ng + nodejs + mysql 开发的系统部署阿里云服务器的过程 准备1、云服务器2、域名3、各种安装包4、自行了解部分词汇含义：ecs、备案、dns解析、安全组、公网ip，私网ip，iis 主要步骤关键词：angular + nodejs + mysql + ecs + win2012R2_64位 + iis + pm2主要步骤中最耗费时间的是备案，笔者准备备案资料">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://i.loli.net/2018/11/21/5bf5131f78b5b.jpg">
+<meta property="og:image" content="https://i.loli.net/2018/11/21/5bf51367e3cac.jpg">
+<meta property="og:updated_time" content="2018-11-21T08:12:35.685Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="deploy your app in aliyun">
+<meta name="twitter:description" content="教程简介主要记录基于 ng + nodejs + mysql 开发的系统部署阿里云服务器的过程 准备1、云服务器2、域名3、各种安装包4、自行了解部分词汇含义：ecs、备案、dns解析、安全组、公网ip，私网ip，iis 主要步骤关键词：angular + nodejs + mysql + ecs + win2012R2_64位 + iis + pm2主要步骤中最耗费时间的是备案，笔者准备备案资料">
+<meta name="twitter:image" content="https://i.loli.net/2018/11/21/5bf5131f78b5b.jpg">
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=1.1">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+
+
+
+
+
+<script type="text/javascript">
+  var themeConfig = {
+    fancybox: {
+      enable: false
+    },
+  };
+</script>
+
+
+
+
+  
+
+
+
+    <title> deploy your app in aliyun - 诗歌创作 </title>
+  </head>
+
+  <body>
+    <div id="page">
+      <header id="masthead"><div class="site-header-inner">
+    <h1 class="site-title">
+        <a href="/." class="logo">诗歌创作</a>
+    </h1>
+
+    <nav id="nav-top">
+        
+            <ul id="menu-top" class="nav-top-items">
+                
+                    <li class="menu-item">
+                        <a href="/archives">
+                            
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li class="menu-item">
+                        <a href="/about">
+                            
+                            
+                                About
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        
+  </nav>
+</div>
+
+      </header>
+      <div id="content">
+        
+    <div id="primary">
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          deploy your app in aliyun
+        
+      </h1>
+
+      <time class="post-time">
+          Nov 21 2018
+      </time>
+    </header>
+
+
+
+    
+            <div class="post-content">
+            <h1 id="教程简介"><a href="#教程简介" class="headerlink" title="教程简介"></a>教程简介</h1><p>主要记录基于 ng + nodejs + mysql 开发的系统部署阿里云服务器的过程</p>
+<h1 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h1><p>1、云服务器<br>2、域名<br>3、各种安装包<br>4、自行了解部分词汇含义：ecs、备案、dns解析、安全组、公网ip，私网ip，iis</p>
+<h1 id="主要步骤"><a href="#主要步骤" class="headerlink" title="主要步骤"></a>主要步骤</h1><p>关键词：angular + nodejs + mysql + ecs + win2012R2_64位 + iis + pm2<br>主要步骤中最耗费时间的是备案，笔者准备备案资料2-3天，备案审核整整一个星期，时间仅供参考<br>这里用的是阿里云全家桶服务</p>
+<ul>
+<li>若是学生身份看这里：200大洋前后，一年的ecs服务器使用期，细节自行了解阿里云云翼计划。</li>
+<li>不是学生身份看这里：注册后阿里云会赠送一个月的ecs服务器，再购买两个月（约120大洋）即可（必须购足三个月，否则无备案服务号，也将无法备案）</li>
+</ul>
+<hr>
+<h3 id="域名"><a href="#域名" class="headerlink" title="域名"></a>域名</h3><p>入口：阿里云控制台=&gt;域名与安全=&gt;域名=&gt;域名购买<br>.com || .cn || .net 年费100+，笔者购10块购买了.top域名<br>支付成功后，在控制台导入后列表中会出现该域名，然后实名认证<br>域名解析（将域名和ecs的公网ip绑定起来）<br>安全组设置（简而言之，配置可访问ecs的ip段、端口段）：端口80/80,88/88，ip配置：0.0.0.0/0</p>
+<p>说明：</p>
+<ul>
+<li>部分域名后缀是无法备案的 <a href="http://www.miitbeian.gov.cn/publish/query/indexFirst.action" target="_blank" rel="noopener">详情见这里</a></li>
+<li>域名购买成功后，立即申请备案初审是无法通过的。原因：域名未入库，工信部无法核实，大概需要3个工作日</li>
+<li>在使用阿里云产品的过程中遇到任何问题，可以直接找在线客服或者电话人工客服，响应速度算是业界良心了</li>
+</ul>
+<hr>
+<h3 id="ECS"><a href="#ECS" class="headerlink" title="ECS"></a>ECS</h3><p>笔者选择的是最低配置：1g内存 + 1g CPU + 1Mbps带宽<br>考虑到Linux的学习成本，镜像选择了win2012R2_64位</p>
+<hr>
+<h3 id="备案"><a href="#备案" class="headerlink" title="备案"></a>备案</h3><p>当你有了实名且已入库的域名 + 正常状态的ecs + 备案服务号即可申请备案了<br>申请备案要很多资料，不同省份不同规则 <a href="https://help.aliyun.com/knowledge_detail/36895.html?spm=5176.8087400.600752.1.58d815c9T0iS4d" target="_blank" rel="noopener">详情见这里</a><br>这是备案成功后的反馈，也可以根据它知道自己需要准备哪些资料：<br><img src="https://i.loli.net/2018/11/21/5bf5131f78b5b.jpg" alt="默认图片"><br>备案的一个原则是严格按照官方的要求去做，因为一个信息的不合规的后果便是重新申请备案，有一个时间成本在这里</p>
+<hr>
+<h3 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h3><p>阿里云创建的默认实例是40GB的固态磁盘，通过公网ip可远程连接到云服务器</p>
+<h4 id="iis"><a href="#iis" class="headerlink" title="iis"></a><code>iis</code></h4><p>远程连接过程可设置本地磁盘映射到ecs中，以达到传输文件的目的 <a href="https://jingyan.baidu.com/album/148a192185f0ae4d71c3b138.html?picindex=1" target="_blank" rel="noopener">详情见这里</a><br>连接成功后，开始菜单旁边的服务器管理器，添加角色,具体角色功能如图（可以理解为安装iis）：<br><img src="https://i.loli.net/2018/11/21/5bf51367e3cac.jpg" alt="默认图片">.jpg)<br>静态内容一定要勾选上！笔者当时一时疏忽没勾选上出现的问题：服务请求一切正常，本地apache访问也一切正常，发布到生产环境后静态资源出现问题！折腾了几天才发现这个没勾上</p>
+<p>基于这个阿里云的最低配置的服务器在安装角色的过程中会出现内存不足的情况 <a href="https://www.baidu.com/s?ie=utf-8&amp;f=8&amp;rsv_bp=1&amp;tn=baidu&amp;wd=%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98%20%E8%AE%BE%E7%BD%AE&amp;oq=md%25E7%25BC%2596%25E8%25BE%2591%25E5%2599%25A8&amp;rsv_pq=d5df6d5d0000e893&amp;rsv_t=e0d8%2FdixoNmMsQ6zVIapAzegp1iKzCR0YmZw10L6%2BuvU4cfu8QeRRr2Dt6E&amp;rqlang=cn&amp;rsv_enter=1&amp;inputT=213796&amp;rsv_sug3=28&amp;rsv_sug1=19&amp;rsv_sug7=100&amp;bs=md%E7%BC%96%E8%BE%91%E5%99%A8" target="_blank" rel="noopener">内存不足解决方案</a></p>
+<ul>
+<li>若成功安装，打开服务器的ie：<a href="http://localhost" target="_blank" rel="noopener">http://localhost</a> 会出现iis的初始化界面。</li>
+<li>否则，重新安装</li>
+</ul>
+<h4 id="dist"><a href="#dist" class="headerlink" title="dist"></a><code>dist</code></h4><p>成功安装iis后，打开iis管理器，添加网站，配置物理路径、网站名（可空）、ip、端口等</p>
+<h4 id="nodejs-pm2"><a href="#nodejs-pm2" class="headerlink" title="nodejs + pm2"></a><code>nodejs + pm2</code></h4><p><a href="https://npm.taobao.org/mirrors/node/v10.1.0/" target="_blank" rel="noopener">node下载</a><br>下载好对应安装包后上传到服务器，node安装步骤和windows一致，没什么去很大区别</p>
+<p>成功安装nodejs、npm后：</p>
+<ul>
+<li>npm install pm2 -g</li>
+<li>跳转到项目的服务端文件夹</li>
+<li>pm2 start 具体的服务端js文件</li>
+</ul>
+<p>nodejs + pm2配合使用理论上可以达到ecs在不关机的情况下，node服务会一直连接</p>
+<h4 id="mysql"><a href="#mysql" class="headerlink" title="mysql"></a><code>mysql</code></h4><p><a href="https://dev.mysql.com/downloads/installer/" target="_blank" rel="noopener">mysql下载</a><br>32位安装包下载还是可以安装64位的mysql服务的<br>安装过程同理，和windows没什么很大区别</p>
+<p>连接mysql有可能会报：E RROR 1130: Host ‘XXXXXX’ is not allowed to connect to this MySQL server<br>hack：</p>
+<ul>
+<li>打开mysql控制台</li>
+<li><code>mysql&gt; GRANT ALL PRIVILEGES ON *.* TO &#39;root&#39;@&#39;%&#39; IDENTIFIED BY &#39;123456&#39; WITH GRANT OPTION</code>;</li>
+</ul>
+<h1 id="https协议"><a href="#https协议" class="headerlink" title="https协议"></a>https协议</h1><p>#FIXME：http升级为https后无法发送请求</p>
+<h1 id="性能优化"><a href="#性能优化" class="headerlink" title="性能优化"></a>性能优化</h1><p><a href="./optimization.md">性能优化</a></p>
+<h1 id="其它坑"><a href="#其它坑" class="headerlink" title="其它坑"></a>其它坑</h1><p>对于前端开发人员来说，iis可能是很陌生的，但这个配置又很重要！</p>
+<p>有时候dist打包好会出现js文件404的情况，两个处理方式：</p>
+<ul>
+<li>正确配置webpack，重新打包</li>
+<li>在build好的index.html：<code>&lt;base href=&quot;./&quot;&gt;</code></li>
+</ul>
+
+            </div>
+          
+
+    
+      <footer class="post-footer">
+		
+		<div class="post-tags">
+		  
+			<a href="/tags/阿里云/">阿里云</a>
+		  
+		</div>
+		
+
+        
+        
+  <nav class="post-nav">
+    
+    
+      <a class="next" href="/2018/11/20/mongo-init/">
+        <span class="next-text nav-default">mongo init in window10</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+        
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+      </footer>
+    
+  </article>
+
+    </div>
+
+      </div>
+
+      <footer id="colophon"><span class="copyright-year">
+    
+        &copy;
+    
+        2014 -
+    
+    2018
+    <span class="footer-author">彭振.</span>
+    <span class="power-by">
+        Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a> and <a class="theme-link" href="https://github.com/frostfan/hexo-theme-polarbear">Polar Bear</a>
+    </span>
+</span>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+    
+
+
+    
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+
+    <script type="text/javascript" src="/js/src/theme.js?v=1.1"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=1.1"></script>
+
+  </body>
+</html>
