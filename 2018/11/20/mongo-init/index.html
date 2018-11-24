@@ -12,7 +12,7 @@
 
 
 
-  <meta name="description" content="mongo init in window10">
+  <meta name="description" content="Mongo init in Window10">
 
 
 
@@ -35,19 +35,19 @@
 <link rel="canonical" href="ppp000.top/2018/11/20/mongo-init/">
 
 
-<meta name="description" content="准备 系统：windows10  download mongo.msi   过程 compass-install.exe组件记得勾选   custom安装在：C:\mongodb，在C:\mongodb中手动创建  C:\mongodb\data\db C:\mongodb\log\mongodb.log   管理员运行cmd，并进入至C:\mongodb\bin 12//运行mongodb服务m">
+<meta name="description" content="Prepare System：windows10  download mongo.msi   Step Please tick compass-install.exe on the component selection page.   Install Mongo on the C:\mongodb through a custom installation, manually create C:">
 <meta name="keywords" content="mongo">
 <meta property="og:type" content="article">
-<meta property="og:title" content="mongo init in window10">
+<meta property="og:title" content="Mongo init in Window10">
 <meta property="og:url" content="ppp000.top/2018/11/20/mongo-init/index.html">
 <meta property="og:site_name" content="Creating Poet">
-<meta property="og:description" content="准备 系统：windows10  download mongo.msi   过程 compass-install.exe组件记得勾选   custom安装在：C:\mongodb，在C:\mongodb中手动创建  C:\mongodb\data\db C:\mongodb\log\mongodb.log   管理员运行cmd，并进入至C:\mongodb\bin 12//运行mongodb服务m">
+<meta property="og:description" content="Prepare System：windows10  download mongo.msi   Step Please tick compass-install.exe on the component selection page.   Install Mongo on the C:\mongodb through a custom installation, manually create C:">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://i.loli.net/2018/11/12/5be92167a8361.jpg">
-<meta property="og:updated_time" content="2018-11-21T08:09:29.702Z">
+<meta property="og:updated_time" content="2018-11-24T09:20:12.762Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="mongo init in window10">
-<meta name="twitter:description" content="准备 系统：windows10  download mongo.msi   过程 compass-install.exe组件记得勾选   custom安装在：C:\mongodb，在C:\mongodb中手动创建  C:\mongodb\data\db C:\mongodb\log\mongodb.log   管理员运行cmd，并进入至C:\mongodb\bin 12//运行mongodb服务m">
+<meta name="twitter:title" content="Mongo init in Window10">
+<meta name="twitter:description" content="Prepare System：windows10  download mongo.msi   Step Please tick compass-install.exe on the component selection page.   Install Mongo on the C:\mongodb through a custom installation, manually create C:">
 <meta name="twitter:image" content="https://i.loli.net/2018/11/12/5be92167a8361.jpg">
 
 
@@ -73,7 +73,7 @@
 
 
 
-    <title> mongo init in window10 - Creating Poet </title>
+    <title> Mongo init in Window10 - Creating Poet </title>
   </head>
 
   <body>
@@ -119,7 +119,7 @@
     <header class="post-header">
       <h1 class="post-title">
         
-          mongo init in window10
+          Mongo init in Window10
         
       </h1>
 
@@ -132,43 +132,41 @@
 
     
             <div class="post-content">
-            <h4 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h4><blockquote>
-<p>系统：windows10</p>
+            <h4 id="Prepare"><a href="#Prepare" class="headerlink" title="Prepare"></a>Prepare</h4><blockquote>
+<p>System：windows10</p>
 <ul>
 <li><a href="https://fastdl.mongodb.org/win32/mongodb-win32-x86_64-2008plus-ssl-3.6.8-signed.msi" target="_blank" rel="noopener">download mongo.msi</a></li>
 </ul>
 </blockquote>
-<h4 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h4><blockquote>
-<p>compass-install.exe组件记得勾选</p>
+<h4 id="Step"><a href="#Step" class="headerlink" title="Step"></a>Step</h4><blockquote>
+<p>Please tick compass-install.exe on the component selection page.</p>
 </blockquote>
 <ol>
-<li><p>custom安装在：C:\mongodb，在C:\mongodb中手动创建</p>
-<ul>
-<li>C:\mongodb\data\db</li>
-<li>C:\mongodb\log\mongodb.log</li>
-</ul>
+<li><p>Install Mongo on the C:\mongodb through a custom installation, manually create C:\mongodb\data\db and C:\mongodb\log\mongodb.log.</p>
 </li>
-<li><p>管理员运行cmd，并进入至C:\mongodb\bin</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//运行mongodb服务</span><br><span class="line">mongod --dbpath C:\mongodb\data\db --logpath=C:\mongodb\log\mongodb.log --logappend</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>管理员运行cmd，并进入至C:\mongodb\bin</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//连接mongodb服务</span><br><span class="line">mongo</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>浏览器运行 <a href="http://localhost:27017/" target="_blank" rel="noopener">http://localhost:27017/</a> ，下图表示mongodb服务正常<br><img src="https://i.loli.net/2018/11/12/5be92167a8361.jpg" alt="默认"></p>
-</li>
-<li><p>以上启动服务器只是一次性的，当关闭了命令窗口，服务器即会关闭，可以将mongodb作为windows启动，这样一开机，mongodb服务就已经启动了</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//把将mongodb作为windows服务启动：</span><br><span class="line">mongod --dbpath C:\mongodb\data\db --logpath=C:\mongodb\log\mongodb.log --logappend --install --serviceName &quot;MongoDB&quot;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>win + r 运行 service.msc 即可看到MongoDB服务正在运行</p>
+<li><p>Runs cmd as a administrator and jumps to the C:\mongodb\bin</p>
 </li>
 </ol>
-<h4 id="robo3t"><a href="#robo3t" class="headerlink" title="robo3t"></a>robo3t</h4><blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//Type command in cmd in order to run MongoDB service in cmd</span><br><span class="line">mongod --dbpath C:\mongodb\data\db --logpath=C:\mongodb\log\mongodb.log --logappend</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li><p>Runs a new cmd as a administrator and jumps to the C:\mongodb\bin</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//Type command in cmd in order to connect the MongoDB service created in the last step.</span><br><span class="line">mongo</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Open <a href="http://localhost:27017/" target="_blank" rel="noopener">http://localhost:27017/</a> in your browser, the following figure shows the normal MongoDB service.<br><img src="https://i.loli.net/2018/11/12/5be92167a8361.jpg" alt="default"></p>
+</li>
+<li><p>Until this step, you can run and connect MongoDB service, but it’s one-off. We can automatically run the MongoDB service with your Window startup.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//Type command in cmd.</span><br><span class="line">mongod --dbpath C:\mongodb\data\db --logpath=C:\mongodb\log\mongodb.log --logappend --install --serviceName &quot;MongoDB&quot;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Type win + r to runs service.msc, you can see a list of MongoDB service.</p>
+</li>
+</ol>
+<h4 id="Visualization-tool-robo3t"><a href="#Visualization-tool-robo3t" class="headerlink" title="Visualization tool: robo3t"></a>Visualization tool: robo3t</h4><blockquote>
 <p>open shell</p>
 </blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">//create first admin_user</span><br><span class="line">show dbs</span><br><span class="line">use exadmin_dev</span><br><span class="line">var user = &#123;</span><br><span class="line">	&quot;user&quot; : &quot;zero&quot;,</span><br><span class="line">	&quot;email&quot; : &quot;zero@gmail.com&quot;,</span><br><span class="line">	&quot;type&quot; : &quot;ADMIN&quot;,</span><br><span class="line">	&quot;pass&quot; : &quot;$2a$10$vLIGgsFFasVPRqKI3KKareWfoHSGXOv1DSacVHGhp3svwOa7OQUKW&quot;</span><br><span class="line">&#125;</span><br><span class="line">db.admin_user.insert(user)</span><br></pre></td></tr></table></figure>
-<h4 id="备注"><a href="#备注" class="headerlink" title="备注"></a>备注</h4><p>bin：目录下可执行文件：mongodb是指服务本身，mongo是连接至mongodb该服务</p>
-<p>在mongo下：connection &gt; database &gt; collection &gt; document or BSON document（类似mysql的row）&gt; filed（类似mysql的column） &gt; index</p>
-<p><strong>若需要</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">//使用配置文件启动mongodb服务：在c:\mongodb\config创建一个文件mongodb.conf，加入配置文件与直接运行命令的效果是一样的</span><br><span class="line">dbpath=C:\mongodb\data\db            # 数据库文件</span><br><span class="line">logpath=C:\mongodb\log\mongodb.log    # 日志文件</span><br><span class="line">logappend=true                        # 日志采用追加模式，配置后mongodb日志会追加到现有的日志文件，不会重新创建一个新文件</span><br><span class="line">journal=true                        # 启用日志文件，默认启用</span><br><span class="line">quiet=true                            # 这个选项可以过滤掉一些无用的日志信息，若需要调试使用请设置为 false</span><br><span class="line">port=27017                            # 端口号 默认为 27017</span><br></pre></td></tr></table></figure></p>
+<h4 id="Remarks"><a href="#Remarks" class="headerlink" title="Remarks"></a>Remarks</h4><p>Bin is the executable file under the current directory.<br><br>MongoDB refers to the service itself.<br><br>You can connect MongoDB service through mongo.<br></p>
+<p>In non-relational database such as Mongo:<br>connection &gt; database &gt; collection &gt; document or BSON document（similar to row of Mysql）&gt; filed（similar to column fo Mysql） &gt; index</p>
+<p><strong>Optional</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">//Runs MongoDB service through configuration file.It can achieve the same effect as running the command directly.</span><br><span class="line">//Create a new file mongodb.conf in C:\mongodb\config.</span><br><span class="line">dbpath=C:\mongodb\data\db            # Database file directory</span><br><span class="line">logpath=C:\mongodb\log\mongodb.log    # Log file</span><br><span class="line"></span><br><span class="line">logappend=true                        # The log adopts the append mode. After the configuration, the mongodb log will be appended to the existing log file, and a new file will not be recreated.</span><br><span class="line">journal=true                        # Enable logging</span><br><span class="line">quiet=true                            # Filter useless logs</span><br><span class="line">port=27017                            # Port</span><br></pre></td></tr></table></figure></p>
 <p><a href="https://www.cnblogs.com/weschen/p/8213746.html" target="_blank" rel="noopener">mongo install and config</a></p>
 
             </div>
@@ -190,7 +188,7 @@
     
       <a class="prev" href="/2018/11/21/deploy/">
         <i class="iconfont icon-left"></i>
-        <span class="prev-text nav-default">deploy your app in aliyun</span>
+        <span class="prev-text nav-default">Deploy your app in aliyun</span>
         <span class="prev-text nav-mobile">Prev</span>
       </a>
     
