@@ -44,7 +44,7 @@
 <meta property="og:description" content="Prepare System：windows10  download mongo.msi   Step Please tick compass-install.exe on the component selection page.   Install Mongo on the C:\mongodb through a custom installation, manually create C:">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://i.loli.net/2018/11/12/5be92167a8361.jpg">
-<meta property="og:updated_time" content="2018-11-24T09:20:12.762Z">
+<meta property="og:updated_time" content="2018-11-24T09:28:35.386Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mongo init in Window10">
 <meta name="twitter:description" content="Prepare System：windows10  download mongo.msi   Step Please tick compass-install.exe on the component selection page.   Install Mongo on the C:\mongodb through a custom installation, manually create C:">
@@ -167,7 +167,7 @@
 <h4 id="Remarks"><a href="#Remarks" class="headerlink" title="Remarks"></a>Remarks</h4><p>Bin is the executable file under the current directory.<br><br>MongoDB refers to the service itself.<br><br>You can connect MongoDB service through mongo.<br></p>
 <p>In non-relational database such as Mongo:<br>connection &gt; database &gt; collection &gt; document or BSON document（similar to row of Mysql）&gt; filed（similar to column fo Mysql） &gt; index</p>
 <p><strong>Optional</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">//Runs MongoDB service through configuration file.It can achieve the same effect as running the command directly.</span><br><span class="line">//Create a new file mongodb.conf in C:\mongodb\config.</span><br><span class="line">dbpath=C:\mongodb\data\db            # Database file directory</span><br><span class="line">logpath=C:\mongodb\log\mongodb.log    # Log file</span><br><span class="line"></span><br><span class="line">logappend=true                        # The log adopts the append mode. After the configuration, the mongodb log will be appended to the existing log file, and a new file will not be recreated.</span><br><span class="line">journal=true                        # Enable logging</span><br><span class="line">quiet=true                            # Filter useless logs</span><br><span class="line">port=27017                            # Port</span><br></pre></td></tr></table></figure></p>
-<p><a href="https://www.cnblogs.com/weschen/p/8213746.html" target="_blank" rel="noopener">mongo install and config</a></p>
+<p><a href="https://www.cnblogs.com/weschen/p/8213746.html" target="_blank" rel="noopener">install Mongo and config</a></p>
 
             </div>
           
